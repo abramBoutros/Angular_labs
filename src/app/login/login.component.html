@@ -1,0 +1,45 @@
+<form #jobPostForm="ngForm"  (ngSubmit)="submitJobPostForm(jobPostForm)">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email" 
+      class="form-control"
+      id="email"  
+      aria-describedby="email" 
+      name="email" 
+      required 
+      ngModel 
+      [email]="true"
+      pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+      #email="ngModel"
+      
+    >
+    
+    <!-- <input type="text" class="form-control" #userEmail="ngModel" name="email" [(ngModel)]="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [ngClass]="{invalid : userEmail.touched && !userEmail?.valid}" required email> -->
+    <small class="text-danger" *ngIf="email.touched && email.invalid  ">
+      <div *ngIf="email.errors?.['required'] || !email.valid ">
+        this field is required
+      </div>
+    </small>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">password</label>
+    <input
+      type="password" 
+      class="form-control"
+      id="password"  
+      aria-describedby="password" 
+      name="password" 
+      required 
+      ngModel   
+      #password="ngModel"
+    >
+    <small class="text-danger" *ngIf="password.touched && !password.valid">
+      <div *ngIf="password.errors?.['required']">
+        this field is required
+      </div>
+    </small>
+  </div>
+
+  <button type="submit" [disabled]="jobPostForm.invalid" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,141 @@
+
+
+    {{reactiveForm.value | json}}
+<form [formGroup]="reactiveForm" (ngSubmit)="submitReactiveForm()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      aria-describedby="name"
+      formControlName="name"
+    />
+
+    <div
+      class="text-danger"
+      *ngIf="
+        reactiveForm.controls['name'].touched && !reactiveForm.controls['name'].valid
+      "
+    >
+      <small *ngIf="formControls['name'].errors?.['required']">
+        this field is required
+      </small>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      aria-describedby="email"
+      formControlName="email"
+    />
+    <div
+      class="text-danger"
+      *ngIf="
+        formControls['email'].touched &&
+        !formControls['email'].valid
+      "
+    >
+      <small *ngIf="formControls['email'].errors?.['email'] || formControls['email'].errors?.['required'] ">
+        this field is required
+      </small>
+      <!-- <small *ngIf="formControls['email'].errors?.['minlength']">
+        Min length is 20 character
+      </small> -->
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="userName" class="form-label">userName</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userName"
+      aria-describedby="userName"
+      formControlName="userName"
+      (keydown.space)="$event.preventDefault();"
+    />
+    <div
+      class="text-danger"
+      *ngIf="
+        formControls['userName'].touched &&
+        !formControls['userName'].valid
+      "
+    >
+      <small *ngIf="formControls['userName'].errors?.['required'] ">
+        this field is required
+      </small>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      aria-describedby="password"
+      formControlName="password"
+      (keydown.space)="$event.preventDefault();"
+    />
+    <div
+      class="text-danger"
+      *ngIf="
+        formControls['password'].touched &&
+        !formControls['password'].valid
+      "
+    >
+      <small *ngIf="formControls['password'].errors?.['required'] ">
+        this field is required
+      </small>
+      <p class="help is-danger"
+      *ngIf="formControls['password'].errors?.['strong'] ">
+      Must have at least one number, one lowercase, one uppercase letter and one symbol.</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input
+      type="confirmPassword"
+      class="form-control"
+      id="confirmPassword"
+      aria-describedby="confirmPassword"
+      formControlName="confirmPassword"
+      (keydown.space)="$event.preventDefault();"
+    />
+    <div
+      class="text-danger"
+      *ngIf="
+        formControls['confirmPassword'].touched &&
+        !formControls['confirmPassword'].valid
+      "
+    >
+      <small *ngIf="formControls['confirmPassword'].errors?.['required'] ">
+        this field is required
+      </small>
+      <small class="help is-danger"
+      *ngIf="formControls['confirmPassword'].errors?.['strong'] ">
+      Must have at least one number, one lowercase, one uppercase letter and one symbol.</small>
+      <small class="help is-danger"
+      *ngIf="reactiveForm.value.password  !== reactiveForm.value.confirmPassword">
+      password and confirmation must match
+    </small>
+    </div>
+    {{reactiveForm.value.password ===  reactiveForm.value.confirmPassword}}
+    {{reactiveForm.value.password | json}}
+    {{reactiveForm.value.confirmPassword | json}}
+  </div>
+
+
+
+  <button
+    type="submit"
+    [disabled]="reactiveForm.invalid"
+    class="btn btn-primary"
+  >
+    Submit
+  </button>
+</form>
+
+<!--  -->
