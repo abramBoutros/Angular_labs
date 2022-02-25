@@ -1,0 +1,17 @@
+<div class="card m-3 shadow" style="width: 18rem;">
+  <img class="card-img-top" src={{productData.image}}  alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">title : {{productData.title}}</h5>
+    <p class="card-text">price : {{productData.price  | currency:'EGP '}}</p>
+    <p class="card-text">description : {{productData.description}}</p>
+    <p class="card-text">category : {{productData.category}}</p>
+    <p class="card-text">rate : {{productData.rating.rate}}</p>
+    <p class="card-text">count : {{productData.rating.count}}</p>
+    <p class="text-success" [style.display]="exist">In Stock</p>
+    <p class="text-danger" [style.display]="nExist">Out of Stock</p>
+    
+
+    <a href="#" class="btn btn-success me-3" >Add to Cart</a>
+    <a [routerLink]="['/product', productData.id]"  class="btn btn-primary">See more</a>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+
+<p class=" h1 mt-5">Products</p>
+
+<div class="container mt-5 d-flex flex-row justify-content-around align-items-start flex-wrap">
+
+  <ng-template ngFor let-product [ngForOf]="products" let-i="index">
+    <li><app-product-card [productData]="product" ></app-product-card></li>
+  </ng-template>
+
+</div>
