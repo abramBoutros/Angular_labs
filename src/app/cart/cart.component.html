@@ -1,0 +1,36 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Quantity</th>
+      <th scope="col">Name</th>
+      <th scope="col">Inc/Dec</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="height: 50px">
+      <th scope="row">{{ counter }}</th>
+      <td>productName</td>
+      <td>
+        <a (click)="decreaseCounter()" class="btn btn-success me-3">-</a>
+        <a (click)="increaseCounter()" class="btn btn-success me-3">+</a>
+      </td>
+      <td>
+        <a (click)="increaseCounter()" class="btn btn-success me-3">remove</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+<h1>Total : {{ 100 }}</h1>

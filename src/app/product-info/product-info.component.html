@@ -1,0 +1,15 @@
+<div class="card m-3 shadow" style="width: 32rem">
+  <img class="card-img-top" src="{{ myProduct?.image }}" alt="Card image cap" />
+  <div class="card-body">
+    <h5 class="card-title">title : {{ myProduct?.title }}</h5>
+    <p class="card-text">price : {{ myProduct?.price | currency: "EGP " }}</p>
+    <p class="card-text">description : {{ myProduct?.description }}</p>
+    <p class="card-text">category : {{ myProduct?.category }}</p>
+    <p class="card-text">rate : {{ myProduct?.rating?.rate }}</p>
+    <p class="card-text">count : {{ myProduct?.rating?.count }}</p>
+    <p class="text-success" [style.display]="exist">In Stock</p>
+    <p class="text-danger" [style.display]="nExist">Out of Stock</p>
+
+    <a class="btn btn-success me-3">Add to Cart</a>
+  </div>
+</div>
